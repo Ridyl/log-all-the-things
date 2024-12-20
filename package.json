@@ -18,6 +18,10 @@
     "sinon": "^2.3.8"
   },
   "dependencies": {
+    "convert-array-to-csv": "^2.0.0",
+    "convert-css-to-json": "^4.0.0",
+    "convert-csv-to-json": "^2.50.0",
+    "csvtojson": "^2.0.10",
     "morgan": "^1.10.0"
   }
 }
