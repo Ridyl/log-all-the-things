@@ -29,6 +29,8 @@ app.use((req, res, next) => {
 
     const logLine = `${log.agent},${log.time},${log.method},${log.resource},${log.version},${log.status}\n`;
 
+    console.log(logLine);
+
     fs.appendFile(logPath, logLine, (err) => {
         if (err) console.error('Error writing to log file', err);
     })
@@ -39,7 +41,6 @@ app.use((req, res, next) => {
 app.get('/', (req, res) => {
 // write your code to respond "ok" here
     res.status(200).send('ok');
-    console.log('ok');
 });
 
 app.get('/logs', (req, res) => {
@@ -47,5 +48,9 @@ app.get('/logs', (req, res) => {
     let json = csvToJson.fieldDelimiter(',').getJsonFromCsv(logPath);
     res.status(200).json(json);
 });
+
+app.get('/', (req, res) => {
+    res.status(404);
+})
 
 module.exports = app;
